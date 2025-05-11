@@ -9,8 +9,9 @@ sudo systemctl start systemd-networkd
 
 sudo pacman -Syu ttf-font-awesome otf-font-awesome noto-fonts-emoji
 sudo pacman -S sof-firmware
-sudo pacman -S waybar hyprpaper hypridle
-sudo pacman -S krita firefox tmux git neovim lazygit
+sudo pacman -S waybar hyprpaper hypridle brightnessctl
+sudo pacman -S krita firefox tmux git neovim lazygit dotnet-sdk zip unzip
+yay -S clang npm unityhub
 
 git config --global user.name EricWRogers
 git config --global user.email ericwilliamrogers@gmail.com
