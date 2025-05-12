@@ -7,6 +7,10 @@ return {
             ensure_installed = {"lua", "c", "cpp", "cmake", "odin", "javascript", "typescript"},
             highlight = { enable = true },
             indent = { enable = true },
+            refactor = {
+                highlight_definitions = false,
+                highlight_current_scope = false,
+            },
         })
     end
 }
