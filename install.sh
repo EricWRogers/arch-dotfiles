@@ -15,7 +15,7 @@ git clone https://aur.archlinux.org/yay.git ~/Git/yay
 cd ~/Git/yay
 makepkg -si
 
-yay -S clang npm unityhub blender-lts-bin prettier patchelf visual-studio-code-bin obs-studio system76-keyboard-configurator system76-power
+yay -S clang npm unityhub blender-lts-bin prettier patchelf visual-studio-code-bin obs-studio system76-keyboard-configurator system76-power gitkraken
 
 sudo systemctl enable com.system76.PowerDaemon.service
 sudo systemctl start com.system76.PowerDaemon.service
