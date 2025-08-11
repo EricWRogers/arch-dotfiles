@@ -7,7 +7,7 @@ sudo systemctl start systemd-networkd
 # nmcli device wifi list
 # nmcli device wifi connect wifi_name password wifi_password
 
-sudo pacman -Syu ttf-font-awesome otf-font-awesome noto-fonts-emoji glxinfo sof-firmware waybar hyprpaper hypridle hyprshot brightnessctl krita firefox tmux git neovim lazygit dotnet-sdk zip unzip ranger cmake btop pulseaudio pavucontrol obs-studio libva-intel-driver libva-utils mesa swaync
+sudo pacman -Syu ttf-font-awesome otf-font-awesome noto-fonts-emoji glxinfo sof-firmware waybar hyprpaper hypridle hyprshot brightnessctl krita firefox tmux git neovim lazygit dotnet-sdk zip unzip ranger cmake btop pulseaudio pavucontrol obs-studio libva-intel-driver libva-utils mesa swaync nextcloud-client libreoffice-fresh
 
 sudo pacman -S --needed base-devel
 mkdir -p ~/Git/yay
