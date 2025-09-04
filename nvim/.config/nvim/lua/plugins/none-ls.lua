@@ -8,6 +8,13 @@ return {
                 null_ls.builtins.formatting.prettier,
                 null_ls.builtins.diagnostics.rubocop,
                 null_ls.builtins.formatting.rubocop,
+
+                null_ls.builtins.formatting.clang_format.with({
+          extra_args = {
+            "--style",
+            "{BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}",
+          },
+        }),
             },
         })
 
