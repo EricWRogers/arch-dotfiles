@@ -7,7 +7,7 @@
 #include <readline/history.h>
 
 // Your supported commands
-static const char *kCmds[] = { "help", "default-single-screen", "hp-laptop-wacom", "hp-mirror-1080p", "quit", NULL };
+static const char *kCmds[] = { "help", "default-single-screen", "hp-laptop-wacom", "hp-mirror-1080p", "oryx-office-ultrawide", "oryx-mirror-tv-wacom", "oryx-wacom-mirror-tv", "quit", NULL };
 
 // generator for command matches
 static char *cmd_generator(const char *text, int state) {
@@ -56,7 +56,7 @@ int main(void) {
             free(line);
             break;
         } else if (strcmp(line, "help") == 0) {
-            puts("Commands: help, default-single-screen, hp-laptop-wacom, hp-mirror-1080p, quit");
+            puts("Commands: help, default-single-screen, hp-laptop-wacom, hp-mirror-1080p, oryx-office-ultrawide, quit");
         } else if (strcmp(line, "default-single-screen") == 0) {
             copy_paste("~/.arch-dotfiles/hyprland/.config/hypr/monitors_backup.conf", "~/.arch-dotfiles/hyprland/.config/hypr/monitors.conf");
             break;
@@ -65,6 +65,15 @@ int main(void) {
             break;
         } else if (strcmp(line, "hp-mirror-1080p") == 0) {
             copy_paste("~/.arch-dotfiles/hyprland/.config/hypr/mirror-single-monitors.conf", "~/.arch-dotfiles/hyprland/.config/hypr/monitors.conf");
+            break;
+        } else if (strcmp(line, "oryx-office-ultrawide") == 0) {
+            copy_paste("~/.arch-dotfiles/hyprland/.config/hypr/oryx-office-ultrawide.conf", "~/.arch-dotfiles/hyprland/.config/hypr/monitors.conf");
+            break;
+        } else if (strcmp(line, "oryx-mirror-tv-wacom") == 0) {
+            copy_paste("~/.arch-dotfiles/hyprland/.config/hypr/oryx-mirror-tv-wacom.conf", "~/.arch-dotfiles/hyprland/.config/hypr/monitors.conf");
+            break;
+        } else if (strcmp(line, "oryx-wacom-mirror-tv") == 0) {
+            copy_paste("~/.arch-dotfiles/hyprland/.config/hypr/oryx-wacom-mirror-tv.conf", "~/.arch-dotfiles/hyprland/.config/hypr/monitors.conf");
             break;
         } else if (*line) {
             printf("Unknown: %s\n", line);
