@@ -1,48 +1,45 @@
 return {
-    {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end
-    },
-    {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "bashls", "neocmake", "cssls", "dockerls", "docker_compose_language_service", "clangd", "csharp_ls", "html" },
-            })
-        end
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            local lspconfig = require("lspconfig")
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  {
+    "neovim/nvim-lspconfig", -- make sure the plugin is declared
+    config = function()
+      -- Capabilities (completion, etc.)
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            lspconfig.html.setup({
-                capabilities = capabilities
-            })
+      -- Lua LS (correct name is lua_ls)
+      vim.lsp.config["lua_ls"] = {
+        cmd = { "lua-language-server" },
+        filetypes = { "lua" },
+        root_markers = { ".luarc.json", ".luarc.jsonc", ".git" },
+        settings = {
+          Lua = {
+            runtime = { version = "LuaJIT" },
+          },
+        },
+        capabilities = capabilities,
+      },
+      vim.lsp.enable("lua_ls")
 
-            
-            lspconfig.lua_ls.setup({
-                capabilities = capabilities
-            })
-            
-            lspconfig.clangd.setup({
-                cmd = { "clangd", "--compile-commands-dir=." },
-                filetypes = { "c", "cpp", "objc", "objcpp" },
-                root_dir = require('lspconfig/util').root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
-                capabilities = capabilities
-            })
+      -- Clangd
+      vim.lsp.config["clangd"] = {
+        cmd = { "clangd", "--compile-commands-dir=." },
+        filetypes = { "c", "h", "cpp", "hpp", "objc", "objcpp" },
+        root_markers = { "compile_commands.json", "compile_flags.txt", ".git" },
+        capabilities = capabilities,
+      },
+      vim.lsp.enable("clangd")
 
-            lspconfig.neocmake.setup({
-                capabilities = capabilities
-            })
-
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, {})
-            vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
-        end
-    }
+      -- Keymaps
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+      vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
+      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end,
+  },
 }
+

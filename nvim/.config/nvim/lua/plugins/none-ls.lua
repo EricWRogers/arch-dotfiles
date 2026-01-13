@@ -10,15 +10,15 @@ return {
                 null_ls.builtins.formatting.rubocop,
 
                 null_ls.builtins.formatting.clang_format.with({
-          extra_args = {
-            "--style",
-            "{BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}",
-          },
-        }),
+                    extra_args = {
+                        "--style",
+                        "{BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}",
+                    },
+                }),
             },
         })
 
         vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-        
     end
 }
+
