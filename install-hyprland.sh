@@ -35,6 +35,7 @@ stow backgrounds
 stow hyprmocha
 stow nvim
 stow waybar
+stow ashell
 
 rm ~/.bashrc
 stow bash-confs
